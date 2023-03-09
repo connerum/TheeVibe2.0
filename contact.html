@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theevibe | Contact Us</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+<section id="heading">
+    <section class="logo">
+        <div class="gradient"></div>
+        <img src="images/logo.jpg" alt="TheeVibe Logo Gradient">
+    </section>
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="#">Contact</a>
+                <section class="signbutton">
+                    <button onclick="window.location.href='/shop.html';">Shop Now!</button>
+                </section>
+            </nav>
+        </header>
+    </div>
+</section>
+<section id="slogan">
+    <h1>Contact Us</h1>
+</section>
+<section id="contact">
+    <form action="scripts/sendemail.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</section>
+
+<footer><p>© 2023 Theevibe. All rights reserved.</p></footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theevibe | Shop Crystal Lamps</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/slideshow.js"></script>
+</head>
+<body>
+<section id="heading">
+    <section class="logo">
+        <div class="gradient"></div>
+        <img src="images/logo.jpg" alt="TheeVibe Logo Gradient">
+    </section>
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/contact.html">Contact</a>
+                <section class="signbutton">
+                    <button onclick="window.location.href='#';">Shop Now!</button>
+                </section>
+            </nav>
+        </header>
+    </div>
+</section>
+
+<section id="slogan">
+    <h1>TheeVibe Crystal Lamp</h1>
+    <h2>Elevate Your Space</h2>
+</section>
+
+<section id="product">
+    <div class="gallery">
+        <div class="main-image">
+            <img src="images/productPage/slide1.jpg">
+        </div>
+        <div class="preview-images">
+            <div class="preview-image">
+                <img src="images/productPage/slide1.jpg">
+            </div>
+            <div class="preview-image">
+                <img src="images/productPage/slide2.jpg">
+            </div>
+            <div class="preview-image">
+                <img src="images/productPage/slide3.jpg">
+            </div>
+            <div class="preview-image">
+                <img src="images/productPage/slide4.jpg">
+            </div>
+            <div class="preview-image">
+                <img src="images/productPage/slide5.jpg">
+            </div>
+            <div class="preview-image">
+                <img src="images/productPage/slide6.jpg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product-info">
+    <h1>Price:  $24.99</h1>
+</section>
+
+<div id="smart-button-container">
+    <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+    </div>
+</div>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+    function initPayPalButton() {
+        paypal.Buttons({
+            style: {
+                shape: 'rect',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'pay',
+
+            },
+
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        "description": "TheeVibe Crystal Lamp: Elevate Your Space",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": 26.74,
+                            "breakdown": {
+                                "item_total": {"currency_code": "USD", "value": 24.99},
+                                "shipping": {"currency_code": "USD", "value": 0},
+                                "tax_total": {"currency_code": "USD", "value": 1.75}
+                            }
+                        }
+                    }]
+                });
+            },
+
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+
+                    // Full available details
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                    // Show a success message within this page, e.g.
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '';
+                    element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+
+                });
+            },
+
+            onError: function(err) {
+                console.log(err);
+            }
+        }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+</script>
+
+<section id="description">
+    <h1>Description</h1>
+    <div id="descbox">
+        <p>&emsp;&emsp;Introducing our new table lamp made of high-quality acrylic material. It features a clean design that creates a fascinating interplay of light and shadow, reminiscent of a diamond. The lamp is highly functional and can transform any dull room into a lively space with its 3D reflections and relaxing colors. With 16 colors to choose from, it's easy to change the room's mood to fit any occasion.</p>
+    </div>
+</section>
+
+<section id="features">
+    <h1>Features</h1>
+    <ul>
+        <li>16 vibrant color options, easily controlled with remote or touch control</li>
+        <li>Adjustable brightness levels (6 in total) to create the perfect ambiance</li>
+        <li>Stunning 3D rose design achieved with special 3D technology</li>
+        <li>Convenient USB charging and long-lasting built-in battery (up to 12 hours of continuous usage)</li>
+        <li>Versatile and suitable for all places and occasions, from bedrooms to living rooms, hotels, or offices</li>
+    </ul>
+</section>
+<footer><p>© 2023 Theevibe. All rights reserved.</p></footer>
+</body>
+</html>
